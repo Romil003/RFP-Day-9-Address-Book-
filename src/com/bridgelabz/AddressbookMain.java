@@ -38,9 +38,7 @@ public class AddressbookMain {
                     while (iterator.hasNext()){
                         addressBook = iterator.next();
                         if(name.equals(addressBook.person.getFirstName())){
-//                            System.out.println(book);
                             addressBook.editPersonDetails();
-//                            addressBook.getContact();
                             iterator.set(addressBook);
                         }
                     }
@@ -57,9 +55,7 @@ public class AddressbookMain {
                     while (iterator1.hasNext()){
                         addressBook = iterator1.next();
                         if(name1.equals(addressBook.person.getFirstName())){
-//                            System.out.println(book);
-//                            addressBook.editPersonDetails();
-//                            addressBook.getContact();
+
                             iterator1.remove();
                         }
                     }
