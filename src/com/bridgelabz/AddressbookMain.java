@@ -1,15 +1,13 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
-
-import java.util.ListIterator;
-import java.util.Scanner;
+import java.lang.reflect.Method;
+import java.util.*;
 
 public class AddressbookMain {
 
 
-
-    public static void main(String[] args) {
+    public void creatingAddressBook(String a){
+        System.out.println("Entering into Address book => " + a);
         ArrayList<AddressBook> book = new ArrayList<>();
         Scanner input = new Scanner(System.in);
         int option;
@@ -46,7 +44,11 @@ public class AddressbookMain {
                     break;
                 case 3 :
                     System.out.println("Displaying Array : ");
-                    System.out.println(book);
+                    Iterator<AddressBook> iterator2 = book.iterator();
+                    while (iterator2.hasNext()) {
+                        addressBook = iterator2.next();
+                        System.out.println(addressBook);
+                    }
                     break;
                 case 4 :
                     System.out.println("Enter a name");
@@ -55,7 +57,6 @@ public class AddressbookMain {
                     while (iterator1.hasNext()){
                         addressBook = iterator1.next();
                         if(name1.equals(addressBook.person.getFirstName())){
-
                             iterator1.remove();
                         }
                     }
@@ -63,15 +64,26 @@ public class AddressbookMain {
                 case 5 :
                     System.out.println("Exiting from book");
                     break;
-
             }
+            System.out.println();
         }while (option != 5);
+    }
+
+    public static void main(String[] args) {
 
 
+        Scanner in = new Scanner(System.in);
+        AddressbookMain book1 = new AddressbookMain();
 
-
-
-
+        System.out.print("Enter the number of address book you want : ");
+        int num = in.nextInt();
+        int i = 0;
+        while ( i != num){
+        System.out.print("Enter the name of address book : ");
+        String bookName = in.next();
+        book1.creatingAddressBook(bookName);
+            i++;
+        }
 
     }
 }

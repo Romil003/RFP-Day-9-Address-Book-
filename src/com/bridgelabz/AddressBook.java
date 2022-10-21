@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class AddressBook {
 
-    Contact person = new Contact();
+    Contact person = new Contact() ;
 
     public void getContact(){
 
@@ -71,4 +71,6 @@ public class AddressBook {
                 "person=" + person +
                 '}';
     }
+
+
 }
