@@ -92,7 +92,7 @@ public class Contact {
 
     public void getPersonDetails(){
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter First Name : ");
+        System.out.print("Enter First Name : ") ;
         firstName = input.next();
         System.out.print("Enter Lat Name : ");
         lastName = input.next();

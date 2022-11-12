@@ -2,7 +2,6 @@ package com.bridgelabz;
 
 import java.util.ArrayList;
 
-import java.util.ListIterator;
 import java.util.Scanner;
 
 public class AddressbookMain {
@@ -10,7 +9,8 @@ public class AddressbookMain {
 
 
     public static void main(String[] args) {
-        ArrayList<AddressBook> book = new ArrayList<>();
+        ArrayList<AddressBook> addressBook = new ArrayList<>();
+        AddressBook book = new AddressBook();
         Scanner input = new Scanner(System.in);
         int option;
         do{
@@ -26,39 +26,24 @@ public class AddressbookMain {
             switch (option){
 
                 case 1 :
-                    AddressBook addressBook = new AddressBook();
-                    addressBook.getContact();
-                    book.add(addressBook);
-                    System.out.println(book);
+                    System.out.println("Enter the number of contact you want ot add : ");
+                    int numberOfContacts = input.nextInt();
+                    for (int i =0; i < numberOfContacts ; i++){
+                        book.getContactDetails();
+                    }
+                    addressBook.add(book);
+                    System.out.println(addressBook);
                     break;
                 case 2 :
-                    System.out.println("Enter a name");
-                    String name = input.next();
-                    ListIterator<AddressBook> iterator = book.listIterator();
-                    while (iterator.hasNext()){
-                        addressBook = iterator.next();
-                        if(name.equals(addressBook.person.getFirstName())){
-                            addressBook.editPersonDetails();
-                            iterator.set(addressBook);
-                        }
-                    }
-                    System.out.println(book);
+                    book.editPersonDetails();
+
                     break;
                 case 3 :
                     System.out.println("Displaying Array : ");
-                    System.out.println(book);
+                    System.out.println(addressBook);
                     break;
                 case 4 :
-                    System.out.println("Enter a name");
-                    String name1 = input.next();
-                    ListIterator<AddressBook> iterator1 = book.listIterator();
-                    while (iterator1.hasNext()){
-                        addressBook = iterator1.next();
-                        if(name1.equals(addressBook.person.getFirstName())){
-
-                            iterator1.remove();
-                        }
-                    }
+                    book.deleteContact();
                     break;
                 case 5 :
                     System.out.println("Exiting from book");
@@ -66,12 +51,5 @@ public class AddressbookMain {
 
             }
         }while (option != 5);
-
-
-
-
-
-
-
     }
 }
