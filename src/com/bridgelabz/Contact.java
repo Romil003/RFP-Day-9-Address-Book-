@@ -80,8 +80,8 @@ public class Contact {
     }
 
     public Contact(String firstName, String lastName, String address, String city, String state, int zipcode, long phoneNumber, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = firstName ;
+        this.lastName = lastName ;
         this.address = address;
         this.city = city;
         this.state = state;
