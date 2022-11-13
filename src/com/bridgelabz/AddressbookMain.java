@@ -18,13 +18,15 @@ public class AddressbookMain {
             System.out.println("Options are : ");
             System.out.print("1.Add Contact to existing address book\t");
             System.out.print("2.Edit Contact\t");
-            System.out.print("3.Display Address Book\t");
+            System.out.print("3.Display Address Book\n");
             System.out.print("4.Delete Contact\t");
             System.out.print("5.Display available Address Books\t");
-            System.out.print("6.Add new Address Book\t");
-            System.out.print("7.Exit\n");
-            System.out.print("Enter an option from above :- ");
-            option = input.nextInt();
+            System.out.print("6.Add new Address Book\n");
+            System.out.print("7.Search a person by City\t");
+            System.out.print("8.Search a person by State\t");
+            System.out.print("9.Exit\n");
+            System.out.print("Enter an option from above :- ") ;
+            option = input.nextInt() ;
 
             switch (option){
 
@@ -97,9 +99,36 @@ public class AddressbookMain {
                     }
                     break;
                 case 7 :
+                    System.out.println("Enter name of address book in which you want to search contact by city name : ");
+                    String addressBookName5 = input.next();
+                    if(dictionary.containsKey(addressBookName5)){
+                        System.out.println("Enter name of city : ");
+                        String cityName = input.next();
+                        AddressBook addressBook = dictionary.get(addressBookName5);
+                        addressBook.searchByCityName(cityName);
+                    }
+                    else {
+                        System.out.println("Address Book does not exist");
+                    }
+                    break;
+                case 8 :
+                    System.out.println("Enter name of address book in which you want to search contact by state name : ");
+                    String addressBookName6 = input.next();
+                    if(dictionary.containsKey(addressBookName6)){
+                        System.out.println("Enter name of State : ");
+                        String stateName = input.next();
+                        AddressBook addressBook = dictionary.get(addressBookName6);
+                        addressBook.searchByStateName(stateName);
+                    }
+                    else {
+                        System.out.println("Address Book does not exist");
+                    }
+                    break;
+                case 9 :
                     System.out.println("Exiting from dictionary");
+                    break;
 
             }
-        }while (option != 7);
+        }while (option != 9);
     }
 }
