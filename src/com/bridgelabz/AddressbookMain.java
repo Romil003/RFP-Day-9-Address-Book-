@@ -24,7 +24,7 @@ public class AddressbookMain {
             System.out.print("6.Add new Address Book\n");
             System.out.print("7.Search a person by City\t");
             System.out.print("8.Search a person by State\t");
-            System.out.print("9.Sort by State\t");
+            System.out.print("9.Sort by ZipCode\t");
             System.out.print("10.Exit\n");
             System.out.print("Enter an option from above :- ") ;
             option = input.nextInt() ;
@@ -130,12 +130,12 @@ public class AddressbookMain {
                     }
                     break;
                 case 9 :
-                    System.out.println("Enter name of address book in which you want to sort contact by state : ");
+                    System.out.println("Enter name of address book in which you want to sort contact by Zipcode : ");
                     String addressBookName7 = input.next();
                     if(dictionary.containsKey(addressBookName7)){
                         System.out.println(addressBookName7 + " Address book exist.");
                         AddressBook addressBook = dictionary.get(addressBookName7);
-                        addressBook.sortByState();
+                        addressBook.sortByZipcode();
                     }
                     else {
                         System.out.println("Address Book does not exist");
