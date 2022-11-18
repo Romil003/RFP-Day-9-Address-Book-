@@ -141,7 +141,6 @@ public class Contact implements Comparable {
     @Override
     public int compareTo(Object o) {
         Contact contact = (Contact) o;
-        int compareResult = this.state.compareTo(contact.state);
-        return compareResult;
+        return this.zipcode>contact.zipcode ? 1 : this.zipcode<contact.zipcode ? -1 : 0;
     }
 }
