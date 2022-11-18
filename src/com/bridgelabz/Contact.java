@@ -112,7 +112,7 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact{" +
+        return  "Contact{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
