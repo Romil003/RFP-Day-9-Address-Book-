@@ -129,7 +129,7 @@ public class AddressBook {
         System.out.println("Number of persons of same name are : " + count);
     }
 
-    public void sortByNames(){
+    public void sortByCity(){
         Comparator<Contact> contactComparable = (a, b) -> a.compareTo(b);
         contacts.stream().sorted(contactComparable).forEach(x -> System.out.println(x));
     }
