@@ -102,26 +102,34 @@ public class AddressBook {
         }
     }
 
-    public void searchByCityName(String cityName){
+    public void searchByCityName(String cityName,String personName){
+        int count = 0;
         for (Contact contact : contacts) {
             if(contact.getCity().equals(cityName)){
                 contactHashMap.put(cityName,contact);
+            }
+            if(contact.getFirstName().equals(personName)){
+                count += 1;
             }
         }
         Predicate<Contact> contactPredicate = t -> t.getCity().equals(cityName);
         contacts.stream().filter(contactPredicate).forEach(x -> System.out.println(x));
         System.out.println(contactHashMap.keySet());
+        System.out.println("Number of persons of same name : " + count );
     }
 
-    public void searchByStateName(String stateName){
+    public void searchByStateName(String stateName,String personName){
         for (Contact contact : contacts) {
             if(contact.getState().equals(stateName)){
                 contactHashMap2.put(stateName,contact);
             }
         }
         Predicate<Contact> contactPredicate = t -> t.getState().equals(stateName);
+        Predicate<Contact> contactPredicate1 = t -> t.getFirstName().equals(personName);
         contacts.stream().filter(contactPredicate).forEach(x -> System.out.println(x));
+        long count = contacts.stream().filter(contactPredicate1).count();
         System.out.println(contactHashMap2.keySet());
+        System.out.println("Number of persons of same name are : " + count);
     }
 
     @Override
