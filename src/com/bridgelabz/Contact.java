@@ -1,8 +1,9 @@
 package com.bridgelabz;
 
+import java.util.Objects;
 import java.util.Scanner;
 
-public class Contact {
+public class Contact implements Comparable {
     private String firstName;
     private String lastName;
     private String address;
@@ -111,6 +112,19 @@ public class Contact {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contact contact = (Contact) o;
+        return Objects.equals(firstName, contact.firstName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName);
+    }
+
+    @Override
     public String toString(){
         return  "Contact{" +
                 "firstName='" + firstName + '\'' +
@@ -122,5 +136,12 @@ public class Contact {
                 ", phoneNumber=" + phoneNumber +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Contact contact = (Contact) o;
+        int compareResult = this.firstName.compareTo(contact.firstName);
+        return compareResult;
     }
 }
